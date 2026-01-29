@@ -150,7 +150,7 @@ export default function Footer() {
                         © {new Date().getFullYear()} TREEN Real Estate & Builders. All rights reserved.
                     </div>
                     <div className="text-xs text-gray-500 font-medium">
-                        Developed by <a href="https://treentech.co" target="_blank" rel="noopener noreferrer" className="text-primary-light hover:underline">TREEN TECH CO</a> (treentech.co)
+                        Developed by <a href="https://treentech.co" target="_blank" rel="noopener noreferrer" className="text-primary-light hover:underline">TREEN TECH CO</a>
                     </div>
                 </div>
             </div>
