@@ -35,9 +35,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" className={`${inter.variable} ${outfit.variable}`}>
-            <head>
-                <link rel="icon" href="/logo-dark.jpg" />
-            </head>
+
             <body>
                 <Navbar />
                 <div className="pt-20">

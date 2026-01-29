@@ -2,13 +2,22 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isServicesOpen, setIsServicesOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
     const pathname = usePathname();
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 50);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     const isActive = (path: string) => {
         if (path === '/') return pathname === '/';
@@ -29,11 +38,12 @@ export default function Navbar() {
             ]
         },
         { name: 'Projects', path: '/projects' },
+        { name: 'Brands', path: '/brands' },
         { name: 'Contact', path: '/contact' },
     ];
 
     return (
-        <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-white/10">
+        <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'glass border-b border-white/10' : 'bg-transparent border-transparent'}`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-20">
                     {/* Logo */}
@@ -60,8 +70,8 @@ export default function Navbar() {
                                         <Link
                                             href={link.path}
                                             className={`px-4 py-2 rounded-lg transition-all duration-300 ${isActive(link.path)
-                                                    ? 'text-primary-light bg-primary-light/10'
-                                                    : 'text-gray-300 hover:text-white hover:bg-white/5'
+                                                ? 'text-primary-light bg-primary-light/10'
+                                                : 'text-gray-300 hover:text-white hover:bg-white/5'
                                                 }`}
                                         >
                                             {link.name}
@@ -73,8 +83,8 @@ export default function Navbar() {
                                                         key={item.path}
                                                         href={item.path}
                                                         className={`block px-4 py-3 transition-colors ${pathname === item.path
-                                                                ? 'text-primary-light bg-primary-light/10'
-                                                                : 'text-gray-300 hover:text-white hover:bg-white/5'
+                                                            ? 'text-primary-light bg-primary-light/10'
+                                                            : 'text-gray-300 hover:text-white hover:bg-white/5'
                                                             }`}
                                                     >
                                                         {item.name}
@@ -87,8 +97,8 @@ export default function Navbar() {
                                     <Link
                                         href={link.path}
                                         className={`px-4 py-2 rounded-lg transition-all duration-300 ${isActive(link.path)
-                                                ? 'text-primary-light bg-primary-light/10'
-                                                : 'text-gray-300 hover:text-white hover:bg-white/5'
+                                            ? 'text-primary-light bg-primary-light/10'
+                                            : 'text-gray-300 hover:text-white hover:bg-white/5'
                                             }`}
                                     >
                                         {link.name}
@@ -144,8 +154,8 @@ export default function Navbar() {
                                     href={link.path}
                                     onClick={() => !link.dropdown && setIsMenuOpen(false)}
                                     className={`block px-4 py-3 rounded-lg transition-colors ${isActive(link.path)
-                                            ? 'text-primary-light bg-primary-light/10'
-                                            : 'text-gray-300 hover:text-white hover:bg-white/5'
+                                        ? 'text-primary-light bg-primary-light/10'
+                                        : 'text-gray-300 hover:text-white hover:bg-white/5'
                                         }`}
                                 >
                                     {link.name}
@@ -158,8 +168,8 @@ export default function Navbar() {
                                                 href={item.path}
                                                 onClick={() => setIsMenuOpen(false)}
                                                 className={`block px-4 py-2 rounded-lg text-sm transition-colors ${pathname === item.path
-                                                        ? 'text-primary-light bg-primary-light/10'
-                                                        : 'text-gray-400 hover:text-white hover:bg-white/5'
+                                                    ? 'text-primary-light bg-primary-light/10'
+                                                    : 'text-gray-400 hover:text-white hover:bg-white/5'
                                                     }`}
                                             >
                                                 {item.name}

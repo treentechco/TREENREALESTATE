@@ -84,7 +84,7 @@ Message: ${formData.message}`;
         <main className="min-h-screen">
             {/* Hero Section */}
             <section className="section min-h-screen flex flex-col items-center justify-center text-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-b from-primary/20 to-transparent pointer-events-none"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-transparent pointer-events-none"></div>
 
                 <div className="animate-fade-in-up relative z-10 w-full max-w-4xl px-4">
                     <div className="mb-12 animate-float">
@@ -317,7 +317,7 @@ Message: ${formData.message}`;
 
             {/* Global Clientele Section */}
             <section className="section bg-white/5 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent pointer-events-none"></div>
+                <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent pointer-events-none"></div>
 
                 {/* Ambient Background Flags */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none select-none opacity-5">
