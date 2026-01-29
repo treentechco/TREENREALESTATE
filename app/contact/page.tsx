@@ -15,7 +15,16 @@ export default function Contact() {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        alert('Thank you for your inquiry! We will contact you soon.');
+
+        const text = `Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Service: ${formData.service}
+Message: ${formData.message}`;
+
+        const encodedText = encodeURIComponent(text);
+        window.open(`https://wa.me/923027685693?text=${encodedText}`, '_blank');
+
         setFormData({ name: '', email: '', phone: '', service: 'construction', message: '' });
     };
 
@@ -141,10 +150,10 @@ export default function Contact() {
                                     required
                                     className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-primary-light transition-colors text-white"
                                 >
-                                    <option value="construction">Construction</option>
-                                    <option value="solar">Solar Energy</option>
-                                    <option value="real-estate">Real Estate</option>
-                                    <option value="other">Other</option>
+                                    <option value="construction" className="bg-gray-900 text-white">Construction</option>
+                                    <option value="solar" className="bg-gray-900 text-white">Solar Energy</option>
+                                    <option value="real-estate" className="bg-gray-900 text-white">Real Estate</option>
+                                    <option value="other" className="bg-gray-900 text-white">Other</option>
                                 </select>
                             </div>
 
@@ -183,8 +192,8 @@ export default function Contact() {
                                     </div>
                                     <div>
                                         <div className="text-sm text-gray-400 mb-1">WhatsApp</div>
-                                        <a href="https://wa.me/923006057365" target="_blank" rel="noopener noreferrer" className="text-green-400 hover:underline">
-                                            +92-3006057365
+                                        <a href="https://wa.me/923027685693" target="_blank" rel="noopener noreferrer" className="text-green-400 hover:underline">
+                                            +92-3027685693
                                         </a>
                                     </div>
                                 </div>
@@ -196,7 +205,7 @@ export default function Contact() {
                                     <div>
                                         <div className="text-sm text-gray-400 mb-1">Phone</div>
                                         <div className="text-white flex flex-col">
-                                            <a href="tel:+923006057365" className="hover:text-primary-light transition-colors">+92-3006057365</a>
+                                            <a href="tel:+923027685693" className="hover:text-primary-light transition-colors">+92-3027685693</a>
                                             <a href="tel:+923040649516" className="hover:text-primary-light transition-colors">+92-3040649516</a>
                                         </div>
                                     </div>
@@ -208,9 +217,14 @@ export default function Contact() {
                                     </div>
                                     <div>
                                         <div className="text-sm text-gray-400 mb-1">Location</div>
-                                        <div className="text-white">
+                                        <a
+                                            href="https://maps.app.goo.gl/PvMc86DmoymqUMUp6"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-white hover:text-accent-gold transition-colors hover:underline block"
+                                        >
                                             Islamabad, Pakistan
-                                        </div>
+                                        </a>
                                     </div>
                                 </div>
 
@@ -260,6 +274,38 @@ export default function Contact() {
                 </div>
             </section>
 
+            {/* Map Section */}
+            <section className="section">
+                <div className="glass rounded-3xl p-8 text-center">
+                    <h3 className="text-3xl font-display font-bold mb-4 text-white">
+                        Visit Our Office
+                    </h3>
+                    <p className="text-gray-400 mb-6">
+                        Located in the heart of Islamabad, we're easy to reach
+                    </p>
+                    <div className="bg-white/5 rounded-xl h-96 overflow-hidden border border-white/10 select-none mb-8">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d212133.00762947!2d72.9576403945312!3d33.684420000000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfbf9cefc4994d%3A0xc48421d894da070c!2sTREEN%20Real%20Estate%20%26%20Builders!5e0!3m2!1sen!2s!4v1706488000000!5m2!1sen!2s"
+                            width="100%"
+                            height="100%"
+                            style={{ border: 0 }}
+                            allowFullScreen
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            className="w-full h-full grayscale hover:grayscale-0 transition-all duration-500"
+                        ></iframe>
+                    </div>
+                    <a
+                        href="https://maps.app.goo.gl/PvMc86DmoymqUMUp6"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-primary inline-flex items-center gap-2"
+                    >
+                        <span>📍</span> Get Directions
+                    </a>
+                </div>
+            </section>
+
             {/* FAQ Section */}
             <section className="section">
                 <div className="text-center mb-16">
@@ -290,25 +336,6 @@ export default function Contact() {
                             )}
                         </div>
                     ))}
-                </div>
-            </section>
-
-            {/* Map Placeholder */}
-            <section className="section">
-                <div className="glass rounded-3xl p-8 text-center">
-                    <h3 className="text-3xl font-display font-bold mb-4 text-white">
-                        Visit Our Office
-                    </h3>
-                    <p className="text-gray-400 mb-6">
-                        Located in the heart of Islamabad, we're easy to reach
-                    </p>
-                    <div className="bg-white/5 rounded-xl h-96 flex items-center justify-center border border-white/10">
-                        <div className="text-center">
-                            <div className="text-6xl mb-4">📍</div>
-                            <p className="text-xl text-gray-400">Islamabad, Pakistan</p>
-                            <p className="text-sm text-gray-500 mt-2">Map integration coming soon</p>
-                        </div>
-                    </div>
                 </div>
             </section>
         </main>

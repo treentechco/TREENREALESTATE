@@ -21,6 +21,9 @@ export default function Footer() {
                     <p className="text-gray-400 mb-4 max-w-md">
                         Leading provider of construction, solar energy, and real estate services in Islamabad, Pakistan. Building excellence with quality and integrity.
                     </p>
+                    <p className="text-sm text-primary-light font-medium mb-6 flex items-center gap-2">
+                        <span>🌍</span> Serving Clients in UK, US, Canada, Australia & Europe
+                    </p>
                     <div className="flex gap-4">
                         <a
                             href="#"
@@ -120,16 +123,14 @@ export default function Footer() {
                             📍 Islamabad, Pakistan
                         </li>
                         <li className="text-gray-400">
-                            📱 <a href="tel:+923006057365" className="hover:text-primary-light transition-colors">+92-3006057365</a>
+                            📱 <a href="tel:+923027685693" className="hover:text-primary-light transition-colors">+92-3027685693</a>
                         </li>
                         <li className="text-gray-400">
                             📱 <a href="tel:+923040649516" className="hover:text-primary-light transition-colors">+92-3040649516</a>
                         </li>
                         <li className="mt-4">
                             <a
-                                href="https://wa.me/923006057365"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                href="https://wa.me/923027685693"
                                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-green-600/20 text-green-400 border border-green-600/30 hover:bg-green-600/30 transition-all font-semibold"
                             >
                                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

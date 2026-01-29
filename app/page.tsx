@@ -15,7 +15,16 @@ export default function Home() {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        alert('Thank you for your inquiry! We will contact you soon.');
+
+        const text = `Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Service: ${formData.service}
+Message: ${formData.message}`;
+
+        const encodedText = encodeURIComponent(text);
+        window.open(`https://wa.me/923027685693?text=${encodedText}`, '_blank');
+
         setFormData({ name: '', email: '', phone: '', service: 'construction', message: '' });
     };
 
@@ -121,11 +130,7 @@ export default function Home() {
                     </div>
                 </div>
 
-                <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-                    <svg className="w-8 h-8 text-primary-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                    </svg>
-                </div>
+
             </section>
 
             {/* Featured Projects Section */}
@@ -306,6 +311,45 @@ export default function Home() {
                             </div>
                         </div>
                     </Link>
+                </div>
+            </section>
+
+
+            {/* Global Clientele Section */}
+            <section className="section bg-white/5 relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent pointer-events-none"></div>
+
+                {/* Ambient Background Flags */}
+                <div className="absolute inset-0 overflow-hidden pointer-events-none select-none opacity-5">
+                    <div className="absolute top-10 left-10 text-9xl transform -rotate-12">🇬🇧</div>
+                    <div className="absolute bottom-10 right-10 text-9xl transform rotate-12">🇺🇸</div>
+                    <div className="absolute top-1/2 left-1/4 text-9xl transform -rotate-6">🇨🇦</div>
+                    <div className="absolute top-10 right-20 text-9xl transform rotate-45">🇦🇺</div>
+                    <div className="absolute bottom-20 left-1/3 text-9xl transform -rotate-12">🇪🇺</div>
+                </div>
+                <div className="text-center mb-16 relative z-10">
+                    <span className="text-primary-light font-semibold tracking-wider text-sm uppercase mb-4 block">International Reach</span>
+                    <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">
+                        Serving Clients <span className="gradient-text">Globally</span>
+                    </h2>
+                    <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-12">
+                        We specialize in assisting overseas Pakistanis and international investors from across the globe with their real estate and construction needs in Islamabad.
+                    </p>
+
+                    <div className="flex flex-wrap justify-center gap-4 md:gap-8 px-4">
+                        {[
+                            { name: 'United Kingdom', flag: '🇬🇧' },
+                            { name: 'USA', flag: '🇺🇸' },
+                            { name: 'Canada', flag: '🇨🇦' },
+                            { name: 'Australia', flag: '🇦🇺' },
+                            { name: 'Europe', flag: '🇪🇺' }
+                        ].map((region) => (
+                            <div key={region.name} className="glass px-6 py-4 rounded-xl flex items-center gap-3 hover:bg-white/10 transition-all cursor-default">
+                                <span className="text-3xl filter drop-shadow-lg">{region.flag}</span>
+                                <span className="font-semibold text-white">{region.name}</span>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </section>
 
